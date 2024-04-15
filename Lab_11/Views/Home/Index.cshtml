@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Logs App";
+}
+
+<div class="main">
+    <h1>Унікальні юзери:</h1>
+    <p>@ViewBag.UniqueUsersCount</p>
+        
+    <h1>Логування:</h1>
+    <ul>
+        @if (ViewBag.LogEntries != null)
+        {
+            @foreach (var logEntry in ViewBag.LogEntries)
+            {
+                <li>@logEntry.MethodName о @logEntry.TimeStamp.ToString("yyyy/MM/dd HH:mm:ss")</li>
+            }
+        }
+        else
+        {
+            <li>Немає доступних логів.</li>
+        }
+    </ul>
+</div>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    .main {
+        padding: 20px;
+    }
+</style>
